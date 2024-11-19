@@ -24,44 +24,6 @@ on:
         default: 'Generate new gerber files'
 
 jobs:
-  d1_mini_esp32_wide:
-    name: D1 Mini Wide - ESP32
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: INTI-CMNB/KiBot@v2_k7
-      with:
-        # Required - kibot config file
-        config: kicad_files/jlcpcb_gerbers.kibot.yaml
-        # optional - prefix to output defined in config
-        dir: output
-        schema: kicad_files/D1 Mini Wide - ESP32/RatGDO-OpenSource-D1Mini-ESP32.kicad_sch
-        board: kicad_files/D1 Mini Wide - ESP32/RatGDO-OpenSource-D1Mini-ESP32.kicad_pcb
-    - name: upload results
-      uses: actions/upload-artifact@v4
-      with:
-        name: D1 Mini Wide - ESP32
-        path: output
-
-  d1_mini_esp32:
-    name: D1 Mini - ESP32
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: INTI-CMNB/KiBot@v2_k7
-      with:
-        # Required - kibot config file
-        config: kicad_files/jlcpcb_gerbers.kibot.yaml
-        # optional - prefix to output defined in config
-        dir: output
-        schema: kicad_files/D1 Mini - ESP32/RatGDO-OpenSource-D1Mini-ESP32.kicad_sch
-        board: kicad_files/D1 Mini - ESP32/RatGDO-OpenSource-D1Mini-ESP32.kicad_pcb
-    - name: upload results
-      uses: actions/upload-artifact@v4
-      with:
-        name: D1 Mini - ESP32
-        path: output
-
   d1_mini_esp8266:
     name: D1 Mini - ESP8266
     runs-on: ubuntu-latest
@@ -79,23 +41,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: D1 Mini - ESP8266
-        path: output
-
-  bare_esp8266:
-    name: Bare ESP8266
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: INTI-CMNB/KiBot@v2_k7
-      with:
-        # Required - kibot config file
-        config: kicad_files/jlcpcb_gerbers.kibot.yaml
-        # optional - prefix to output defined in config
-        dir: output
-        schema: kicad_files/Bare ESP8266/RatGDO-OpenSource-Bare-ESP8266.kicad_sch
-        board: kicad_files/Bare ESP8266/RatGDO-OpenSource-Bare-ESP8266.kicad_pcb
-    - name: upload results
-      uses: actions/upload-artifact@v4
-      with:
-        name: Bare ESP8266
         path: output
